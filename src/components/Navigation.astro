@@ -1,0 +1,125 @@
+---
+const links = [
+  { href: "#header", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+];
+---
+
+<header class="nav-wrap">
+  <nav class="nav" id="site-nav">
+    <ul class="nav-links">
+      {links.map((link) => (
+        <li><a href={link.href}>{link.label}</a></li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .nav-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .nav {
+    pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    transition: width 0.35s ease, margin-top 0.35s ease, padding 0.35s ease,
+      background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .nav.scrolled {
+    width: auto;
+    margin-top: 0.9rem;
+    padding: 0.65rem 1.75rem;
+    background: rgba(22, 24, 29, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-color: var(--border);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-bottom: 2px;
+  }
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.25s ease;
+  }
+
+  .nav-links a:hover {
+    color: #fff;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 640px) {
+    .nav-links {
+      gap: 1.1rem;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+    }
+
+    .nav.scrolled {
+      padding: 0.55rem 1rem;
+    }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById("site-nav");
+
+  const updateNav = () => {
+    if (!nav) return;
+    if (window.scrollY > 40) {
+      nav.classList.add("scrolled");
+    } else {
+      nav.classList.remove("scrolled");
+    }
+  };
+
+  updateNav();
+  window.addEventListener("scroll", updateNav, { passive: true });
+</script>

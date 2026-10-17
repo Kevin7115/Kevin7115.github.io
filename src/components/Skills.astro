@@ -1,0 +1,159 @@
+---
+import { techIcon } from "../utils/icons.js";
+
+const categories = ["All", "Languages", "Frontend", "Backend", "Tools"];
+
+const skills = [
+    { "name": "Python", "category": "Languages" },
+    { "name": "JavaScript", "category": "Languages" },
+    { "name": "TypeScript", "category": "Languages" },
+    { "name": "Java", "category": "Languages" },
+    { "name": "React", "category": "Frontend" },
+    { "name": "Astro", "category": "Frontend" },
+    { "name": "HTML5", "category": "Frontend" },
+    { "name": "CSS3", "category": "Frontend" },
+    // { "name": "Tailwind CSS", "category": "Frontend" },
+    { "name": "Node.js", "category": "Backend" },
+    // { "name": "Express", "category": "Backend" },
+    // { "name": "MongoDB", "category": "Backend" },
+    // { "name": "PostgreSQL", "category": "Backend" },
+    { "name": "Git", "category": "Tools" },
+    { "name": "Docker", "category": "Tools" },
+    // { "name": "Figma", "category": "Tools" },
+    { "name": "C", "category": "Languages" },
+    { "name": "DigitalOcean", "category": "Tools" },
+    { "name": "Spring Boot", "category": "Backend" },
+    { "name": "Pytorch", "category": "Tools" },
+    { "name": "Numpy", "category": "Tools" },
+    { "name": "FastAPI", "category": "Backend" },
+    { "name": "Azure", "category": "Tools" },
+];
+---
+
+<section id="skills" class="skills">
+  <h2>Skills</h2>
+
+  <div class="filter-bar" role="tablist">
+    {categories.map((cat, i) => (
+      <button class="filter-btn" data-category={cat} aria-pressed={i === 0 ? "true" : "false"}>
+        {cat}
+      </button>
+    ))}
+  </div>
+
+  <div class="skills-grid">
+    {skills.map((skill) => {
+      const icon = techIcon(skill.name);
+      return (
+        <div class="skill-card" data-category={skill.category}>
+          <img src={icon.url} alt={skill.name} loading="lazy" class:list={{ invert: icon.invert }} />
+          <span>{skill.name}</span>
+        </div>
+      );
+    })}
+  </div>
+</section>
+
+<style>
+  .skills h2 {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    margin: 0 0 2rem;
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .filter-btn {
+    padding: 0.55rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--gold);
+    color: #fff;
+  }
+
+  .filter-btn[aria-pressed="true"] {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--bg);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.1rem;
+  }
+
+  .skill-card {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--bg-secondary);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .skill-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+  }
+
+  .skill-card img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .skill-card img.invert {
+    filter: invert(1);
+  }
+
+  .skill-card span {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 500;
+    text-align: center;
+    padding: 0 0.25rem;
+  }
+
+  .skill-card[hidden] {
+    display: none;
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".skills .filter-btn");
+  const cards = document.querySelectorAll<HTMLDivElement>(".skills .skill-card");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const category = btn.getAttribute("data-category");
+
+      buttons.forEach((b) => b.setAttribute("aria-pressed", "false"));
+      btn.setAttribute("aria-pressed", "true");
+
+      cards.forEach((card) => {
+        const match = category === "All" || card.getAttribute("data-category") === category;
+        card.hidden = !match;
+      });
+    });
+  });
+</script>

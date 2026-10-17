@@ -1,0 +1,11 @@
+[
+    {
+        "title": "Project 1",
+        "date": "Jun 2030",
+        "description": "Lorem ipsum sola something",
+        "image": "./path",
+        "github": "www.link",
+        "live_view": "",
+        "skills": ["Python", "Assembly", "Fortran"]
+    }
+]

@@ -1,0 +1,238 @@
+---
+const contactLinks = [
+  {
+    label: "linkedin.com/in/kevin-santiago7",
+    href: "https://www.linkedin.com/in/kevin-santiago7/",
+    icon: "linkedin",
+  },
+  {
+    label: "github.com/Kevin7115",
+    href: "https://github.com/Kevin7115",
+    icon: "github",
+  },
+  {
+    label: "kevin711san@gmail.com",
+    href: "mailto:kevin711san@gmail.com",
+    icon: "mail",
+  },
+];
+---
+
+<section id="contact" class="contact">
+  <h2>Get In Touch</h2>
+
+  <div class="contact-grid">
+    <div class="connect-card">
+      <h3>Let's Connect</h3>
+      <!-- <p>I'm always open to discussing new projects, ideas, or opportunities to be part of.</p> -->
+
+      <ul class="connect-list">
+        {contactLinks.map((link) => (
+          <li>
+            <a href={link.href} target="_blank" rel="noopener noreferrer">
+              <span class="icon-box">
+                {link.icon === "linkedin" && (
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.33V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z"/></svg>
+                )}
+                {link.icon === "github" && (
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.93c.57.1.78-.25.78-.55v-2.15c-3.2.7-3.88-1.4-3.88-1.4-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.71 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.64 1.6.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.44-2.7 5.42-5.28 5.7.42.36.78 1.08.78 2.18v3.24c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+                )}
+                {link.icon === "mail" && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5 12 13l9-6.5"/></svg>
+                )}
+              </span>
+              <span class="connect-text">{link.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <form class="contact-form" id="contact-form">
+      <label for="contact-name">Name</label>
+      <input type="text" id="contact-name" name="name" placeholder="Enter your name" required />
+
+      <label for="contact-email">Email</label>
+      <input type="email" id="contact-email" name="email" placeholder="Enter your email" required />
+
+      <label for="contact-message">Message</label>
+      <textarea id="contact-message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+
+      <button type="submit">
+        Send Message
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg>
+      </button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .contact h2 {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    margin: 0 0 3rem;
+    color: var(--gold);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .connect-card,
+  .contact-form {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.25rem;
+  }
+
+  .connect-card h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.4rem;
+  }
+
+  .connect-card p {
+    color: var(--muted);
+    margin: 0 0 2.5rem;
+  }
+
+  .connect-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .connect-list a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .icon-box {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--muted);
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .icon-box svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .connect-list a:hover .icon-box {
+    color: var(--gold);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .connect-text {
+    color: var(--muted);
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+    word-break: break-word;
+  }
+
+  .connect-list a:hover .connect-text {
+    color: var(--gold);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contact-form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 0.9rem;
+  }
+
+  .contact-form label:first-of-type {
+    margin-top: 0;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    color: #fff;
+    font-size: 0.95rem;
+    resize: vertical;
+    margin-top: 0.5rem;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+
+  .contact-form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background: var(--gold);
+    color: var(--bg);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .contact-form button:hover {
+    opacity: 0.85;
+  }
+
+  .contact-form button svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media (max-width: 860px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script define:vars={{ recipient: "kevin711san@gmail.com" }}>
+  const form = document.getElementById("contact-form");
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
+
+    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+
+    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+  });
+</script>

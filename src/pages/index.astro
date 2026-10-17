@@ -1,0 +1,99 @@
+---
+import Navigation from "../components/Navigation.astro"
+import Projects from "../components/Projects.astro"
+import Header from "../components/Header.astro"
+import About from "../components/About.astro"
+import Skills from "../components/Skills.astro"
+import Contact from "../components/Contact.astro"
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Kevin Santiago - Portfolio</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<Navigation />
+		<main>
+			<Header />
+			<About />
+			<Projects />
+			<Skills />
+			<Contact />
+		</main>
+		<footer class="site-footer">
+			<p>&copy; 2026 Kevin Santiago. All rights reserved.</p>
+		</footer>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--bg: #0a0b0d;
+		--bg2: black;
+		--bg-secondary: #16181d;
+		--border: #2a2f38;
+		--gold: #cfae3d;
+		--muted: #aeb6c2;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+		background: var(--bg2);
+		color: #fff;
+		font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+		line-height: 1.6;
+	}
+
+	main {
+		overflow-x: hidden;
+	}
+
+	section {
+		scroll-margin-top: 6rem;
+		padding: 6rem 1.5rem;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	a {
+		color: inherit;
+	}
+
+	img {
+		max-width: 100%;
+		display: block;
+	}
+
+	button,
+	input,
+	textarea {
+		font-family: inherit;
+	}
+
+	.site-footer {
+		text-align: center;
+		padding: 2rem 1.5rem;
+		border-top: 1px solid var(--border);
+		color: var(--muted);
+		font-size: 0.85rem;
+	}
+</style>
