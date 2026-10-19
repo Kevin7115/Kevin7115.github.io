@@ -1,13 +1,15 @@
 ---
 import { Image } from "astro:assets";
 import { techIcon } from "../utils/icons.js";
-import chatbot_img from "../assets/chatbot.png"
+import chatbot_img from "../assets/chatbot2.png"
+import flappyAI_img from "../assets/flappyAI-img2.png"
+import wordhunt_img from "../assets/wordhunt-img2.png"
 
 const projects = [
     {
         "title": "Character Chatbots",
         "date": "Dec 2025",
-        "description": "Lorem ipsum sola something. Replace this placeholder with a real project description later.",
+        "description": "Developed a multi-agent chatbot platform that supports concurrent, real-time conversations with customizable AI characters. Built a FastAPI backend to handle asynchronous message routing between the OpenAI and ElevenLabs APIs. Integrated Azure Speech-to-Text to enable real-time voice interactions between users and chatbots.",
         "image": chatbot_img,
         "github": "https://github.com/Kevin7115/Multi-Character-Chatbots",
         "live_view": "",
@@ -17,18 +19,18 @@ const projects = [
     {
         "title": "Flappy Bird AI",
         "date": "Oct 2024",
-        "description": "Lorem ipsum sola something. Replace this placeholder with a real project description later.",
-        "image": null,
+        "description": "Built a custom Gymnasium environment to train and evaluate reinforcement learning agents playing Flappy Bird. Implemented a Deep Q-Network (DQN) in PyTorch and used Matplotlib to visualize training in real time and analyze agent performance across iterations.",
+        "image": flappyAI_img,
         "github": "https://github.com/Kevin7115/Flappy-Bird-AI",
         "live_view": "",
         "showLive": true,
         "skills": ["Python", "Pytorch", "Numpy"]
     },
     {
-        "title": "Wordhunt Solver",
+        "title": "WordHunt Solver",
         "date": "Feb 2026",
-        "description": "Lorem ipsum sola something. Replace this placeholder with a real project description later.",
-        "image": null,
+        "description": "Developed a solver for GamePigeon’s WordHunt using trie-based depth-first search to efficiently find valid words on a game board. Built a React web interface for entering board letters and displaying results, backed by a Spring Boot API that processes the board and returns matching words.",
+        "image": wordhunt_img,
         "github": "https://github.com/Kevin7115/WordHunt-Solver",
         "live_view": "",
         "showLive": false,
