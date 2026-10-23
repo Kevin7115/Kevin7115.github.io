@@ -1,0 +1,50 @@
+---
+// Unlisted page: not linked from the home page.
+const pdf = "/Kevin_Santiago_Resume_UTA.pdf";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="robots" content="noindex, nofollow" />
+		<title>Kevin Santiago - Resume</title>
+	</head>
+	<body>
+		<object data={pdf} type="application/pdf" title="Kevin Santiago - Resume">
+			<p class="fallback">
+				Your browser can't display the PDF inline.
+				<a href={pdf} target="_blank" rel="noopener">Open the resume</a>
+			</p>
+		</object>
+	</body>
+</html>
+
+<style is:global>
+	html,
+	body {
+		margin: 0;
+		height: 100%;
+		background: #525659;
+	}
+
+	object {
+		display: block;
+		width: 100%;
+		height: 100vh;
+		border: 0;
+	}
+
+	.fallback {
+		padding: 2rem 1rem;
+		color: #fff;
+		font-family: system-ui, sans-serif;
+		text-align: center;
+	}
+
+	.fallback a {
+		color: #8ab4f8;
+	}
+</style>
